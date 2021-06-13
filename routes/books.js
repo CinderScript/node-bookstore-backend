@@ -9,7 +9,7 @@ function HandleError(response, reason, message, code){
 
 router.post('/', (request, response, next) =>{
   let bookJSON = request.body;
-  if (!bookJSON.title || !bookJSON.description || bookJSON.year || bookJSON.author || bookJSON.hardCover || bookJSON.price)
+  if (!bookJSON.title || !bookJSON.description || !bookJSON.year || !bookJSON.author || !bookJSON.hardCover || !bookJSON.price)
     HandleError(response, 'Missing Information', 'Form Data Missing', 500);
   else{
     let book = new BookSchema({
