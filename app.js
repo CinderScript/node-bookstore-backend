@@ -10,7 +10,7 @@ var db = require('./database');
 
 
 var indexRouter = require('./routes/index');
-var studentsRouter = require('./routes/students');
+var booksRouter = require('./routes/books');
 
 var app = express();
 
@@ -33,7 +33,7 @@ app.use((request, response, next) => {
 
 
 app.use('/', indexRouter);
-app.use('/api/students', studentsRouter);
+app.use('/api/books', booksRouter);
 
 
 // catch 404 and forward to error handler
