@@ -25,7 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.options('*', cors()) // include before other routes
-
 app.use(cors());
 
 // To be able to use the API everywhere... there are better ways to handle this!
