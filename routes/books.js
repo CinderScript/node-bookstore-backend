@@ -93,9 +93,9 @@ router.patch('/:id', (request, response, next) => {
       });
 });
 
-router.delete('/', (request, response, next) => {
+router.delete('/:id', (request, response, next) => {
   BookSchema
-      .findById(request.body.id, (error, result)=>{
+      .findById(request.params.id, (error, result)=>{
         if (error) {
           response.status(500).send(error);
         }else if (result){
