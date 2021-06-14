@@ -95,7 +95,7 @@ router.patch('/:id', (request, response, next) => {
 
 router.delete('/', (request, response, next) => {
   BookSchema
-      .findById("60c5e7cbfd552c0004c7ffef", (error, result)=>{
+      .findById(request.body.id, (error, result)=>{
         if (error) {
           response.status(500).send(error);
         }else if (result){
