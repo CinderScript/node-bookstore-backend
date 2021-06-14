@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
 
 // for db
 var db = require('./database');
@@ -24,12 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.options('*', cors()) // include before other routes
 
-// To be able to use the API everywhere... there are better ways to handle this!
-app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', 'DELETE');
-  next();
-});
+app.use(cors());
 
 // To be able to use the API everywhere... there are better ways to handle this!
 app.use((request, response, next) => {
