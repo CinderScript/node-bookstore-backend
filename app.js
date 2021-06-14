@@ -27,6 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // To be able to use the API everywhere... there are better ways to handle this!
 app.use((request, response, next) => {
+  response.header('Access-Control-Allow-Origin', 'DELETE');
+  next();
+});
+
+// To be able to use the API everywhere... there are better ways to handle this!
+app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*');
   next();
 });
